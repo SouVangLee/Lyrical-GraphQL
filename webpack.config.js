@@ -11,7 +11,7 @@ module.exports = {
     rules: [
       {
         use: 'babel-loader',
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/
       },
       {
@@ -25,5 +25,8 @@ module.exports = {
       template: 'client/index.html'
     })
   ],
-  mode: 'development'
+  mode: 'development',
+  resolve: {
+    extensions: [".js", ".jsx", "*"],
+  },
 };
