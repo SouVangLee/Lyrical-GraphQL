@@ -1,7 +1,11 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import App from './components/App';
 import SongList from './components/SongList';
+import SongCreate from './components/SongCreate';
 
 const client = new ApolloClient({ 
   uri: 'http://localhost:4000/graphql', 
@@ -11,7 +15,14 @@ const client = new ApolloClient({
 const Root = () => {
   return (
     <ApolloProvider client={client}>
-      <SongList />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={< App/>}>
+            <Route index element={<SongList />} />
+          </Route>
+          <Route path="song/new" element={<SongCreate />} />
+        </Routes>
+      </BrowserRouter>
     </ApolloProvider>
   )
 };
