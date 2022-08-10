@@ -10,9 +10,14 @@ module.exports = {
   module: {
     rules: [
       {
-        use: 'babel-loader',
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ["@babel/env", "@babel/react"]
+          }
+        },
         test: /\.jsx?$/,
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         use: ['style-loader', 'css-loader'],
@@ -26,7 +31,11 @@ module.exports = {
     })
   ],
   mode: 'development',
+  devtool: "source-map",
   resolve: {
     extensions: [".js", ".jsx", "*"],
+  },
+  devServer: {
+    historyApiFallback: true
   },
 };

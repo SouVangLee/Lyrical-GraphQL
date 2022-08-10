@@ -14,3 +14,19 @@
   padding: 16px;
   border: 2px solid grey;
 }
+
+.create-song-container {
+  padding: 25px;
+}
+
+.create-song-form label {
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.create-song-form input {
+  margin-top: 10px;
+  padding-left: 10px;
+}
