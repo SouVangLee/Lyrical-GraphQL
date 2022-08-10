@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery, gql, NetworkStatus } from '@apollo/client';
+import { Link } from 'react-router-dom';
 import "../style/style.css"
 
 // defining a query
@@ -37,9 +38,12 @@ const SongList = ( props ) => {
   });
 
   return (
-    <div className="song-list">
-      {renderSongs}
-    </div>
+    <>
+      <div className="song-list">
+        {renderSongs}
+      </div>
+      <Link to="song/new">Create a New Song</Link>
+    </>
   )
 }
 
