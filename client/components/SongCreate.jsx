@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // defining a mutation
 const ADD_SONG = gql`
@@ -14,6 +14,7 @@ const ADD_SONG = gql`
 const SongCreate = (props) => {
   const [title, setTitle] = useState('');
   const [addSong, { loading, error, data }] = useMutation(ADD_SONG);
+  const navigate = useNavigate();
   // console.log('addSong', addSong);
   // console.log('___loading', loading);
   // console.log('___error', error);
@@ -21,10 +22,12 @@ const SongCreate = (props) => {
 
   if (loading) return <p>{'Submitting...'}</p>;
   if (error) return <p>{`Submission error! ${error.message}`}</p>;
+  // console.log('useNavigate', navigate);
 
   const handleSubmit = event => {
     event.preventDefault();
-    addSong({variables: { title: title}});
+    addSong({variables: { title: title}})
+      .then(() => navigate("/"));
     setTitle('');
   };
 
