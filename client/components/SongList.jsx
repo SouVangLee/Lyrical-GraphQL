@@ -1,7 +1,6 @@
 import React from 'react';
 import { useQuery, gql, NetworkStatus } from '@apollo/client';
 import { Link } from 'react-router-dom';
-import "../style/style.css"
 
 // defining a query
 const GET_SONG_LIST = gql`
@@ -42,7 +41,9 @@ const SongList = ( props ) => {
       <div className="song-list">
         {renderSongs}
       </div>
-      <Link to="song/new">Create a New Song</Link>
+      <div>
+        <Link to="songs/new" className="create-new-song-button">+</Link>
+      </div>
     </>
   )
 }

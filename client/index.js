@@ -20,7 +20,7 @@ const Root = () => {
           <Route path="/" element={< App/>}>
             <Route index element={<SongList />} />
           </Route>
-          <Route path="song/new" element={<SongCreate />} />
+          <Route path="songs/new" element={<SongCreate />} />
         </Routes>
       </HashRouter>
     </ApolloProvider>

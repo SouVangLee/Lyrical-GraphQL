@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { useMutation, gql, NetworkStatus } from '@apollo/client';
+import { useMutation, gql } from '@apollo/client';
+import { Link } from 'react-router-dom';
 
+// defining a mutation
 const ADD_SONG = gql`
   mutation AddSong($title: String){
     addSong(title: $title) {
@@ -8,7 +10,6 @@ const ADD_SONG = gql`
     }
   }
 `
-
 
 const SongCreate = (props) => {
   const [title, setTitle] = useState('');
@@ -18,9 +19,8 @@ const SongCreate = (props) => {
   // console.log('___error', error);
   // console.log('___data', data);
 
-  if (loading) return 'Submitting...';
-  if (error) return `Submission error! ${error.message}`;
-
+  if (loading) return <p>{'Submitting...'}</p>;
+  if (error) return <p>{`Submission error! ${error.message}`}</p>;
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -30,6 +30,7 @@ const SongCreate = (props) => {
 
   return (
     <div className="create-song-container">
+      <Link to="/" className='back-to-song-list' dangerouslySetInnerHTML={{__html: `\u2190` }} />
       <h3>Create a New Song</h3>
       <form 
         onSubmit={handleSubmit} 
