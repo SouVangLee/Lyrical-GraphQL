@@ -30,7 +30,9 @@ const SongCreate = (props) => {
         className="create-song-form"
       >
         <label>Song Title:</label>
-        <input 
+        <input
+          autoFocus
+          type="text"
           onChange={event => setTitle(event.target.value)}
           value={title}
           placeholder={"Enter a song title here"}

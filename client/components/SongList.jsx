@@ -6,23 +6,19 @@ import DELETE_SONG from '../mutations/deleteSong';
 
 const SongList = ( props ) => {
   const { data, loading, error, networkStatus } = useQuery(FETCH_SONGS);
-  const [deleteSong] = useMutation(DELETE_SONG, {
-    refetchQueries: [{query: FETCH_SONGS}]
-  });
+  const [deleteSong] = useMutation(DELETE_SONG,);
 
   if (networkStatus === NetworkStatus.refetch) return 'Refetching!';
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error!!</p>
 
   const handleDeleteSong = (id) => {
-    console.log('__id', id);
-    // deleteSong({ variables: { id }})
-    //   .then(res => console.log('__res', res));
+    deleteSong({ variables: { id }});
   };
  
   const renderSongs = data.songs.map(({ id, title }) => {
     return (
-      <div key={`${id}`} className="song">
+      <div key={`${id}-${title}`} className="song">
         {title}-----------------{id}
         <button onClick={() => handleDeleteSong(id)}>delete</button>
       </div>
