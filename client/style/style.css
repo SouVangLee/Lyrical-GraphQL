@@ -8,6 +8,8 @@
 }
 
 .song {
+  display: flex;
+  justify-content: space-between;
   font-size: 24px;
   padding: 16px;
   border: 2px solid grey;

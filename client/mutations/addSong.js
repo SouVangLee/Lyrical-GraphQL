@@ -1,11 +1,11 @@
 import { gql } from "@apollo/client";
 // defining a mutation
-const ADD_SONGS = gql`
-  mutation AddSong($title: String){
+const ADD_SONG = gql`
+  mutation addSong($title: String){
     addSong(title: $title) {
       title
     }
   }
 `;
 
-export default ADD_SONGS;
+export default ADD_SONG;

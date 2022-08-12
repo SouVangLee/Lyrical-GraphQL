@@ -1,23 +1,18 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { Link, useNavigate } from 'react-router-dom';
-import ADD_SONGS from '../mutations/addSongs';
+import ADD_SONG from '../mutations/addSong';
 import FETCH_SONGS from '../queries/fetchSongs';
 
 const SongCreate = (props) => {
   const [title, setTitle] = useState('');
-  const [addSong, { loading, error, data }] = useMutation(ADD_SONGS, {
+  const [addSong, { loading, error, data }] = useMutation(ADD_SONG, {
     refetchQueries: [{query: FETCH_SONGS}]
   });
   const navigate = useNavigate();
-  // console.log('addSong', addSong);
-  // console.log('___loading', loading);
-  // console.log('___error', error);
-  // console.log('___data', data);
 
   if (loading) return <p>{'Submitting...'}</p>;
   if (error) return <p>{`Submission error! ${error.message}`}</p>;
-  // console.log('useNavigate', navigate);
 
   const handleSubmit = event => {
     event.preventDefault();
