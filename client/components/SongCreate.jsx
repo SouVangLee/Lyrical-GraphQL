@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
-import { useMutation, gql } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { Link, useNavigate } from 'react-router-dom';
-
-// defining a mutation
-const ADD_SONG = gql`
-  mutation AddSong($title: String){
-    addSong(title: $title) {
-      title
-    }
-  }
-`
+import ADD_SONGS from '../mutations/addSongs';
+import FETCH_SONGS from '../queries/fetchSongs';
 
 const SongCreate = (props) => {
   const [title, setTitle] = useState('');
-  const [addSong, { loading, error, data }] = useMutation(ADD_SONG);
+  const [addSong, { loading, error, data }] = useMutation(ADD_SONGS, {
+    refetchQueries: [{query: FETCH_SONGS}]
+  });
   const navigate = useNavigate();
   // console.log('addSong', addSong);
   // console.log('___loading', loading);

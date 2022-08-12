@@ -1,20 +1,11 @@
 import React from 'react';
-import { useQuery, gql, NetworkStatus } from '@apollo/client';
+import { useQuery, NetworkStatus } from '@apollo/client';
 import { Link } from 'react-router-dom';
-
-// defining a query
-const GET_SONG_LIST = gql`
-  query {
-    songs {
-      id
-      title
-    }
-  }
-`;
+import FETCH_SONGS from '../queries/fetchSongs'
 
 const SongList = ( props ) => {
   const { loading, error, data, networkStatus } = useQuery(
-    GET_SONG_LIST,
+    FETCH_SONGS,
     {
       notifyOnNetworkStatusChange: true,
     });
