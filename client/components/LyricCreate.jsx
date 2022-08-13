@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import ADD_LYRIC_TO_SONG from '../mutations/addLyricsToSong';
+import ADD_LYRIC_TO_SONG from '../mutations/addLyricToSong';
 
 const LyricCreate = (props) => {
   const { songId } = props;
-  const [lyrics, setLyrics] = useState('');
+  const [content, setContent] = useState('');
   const [addLyricsToSong] = useMutation(ADD_LYRIC_TO_SONG);
 
   const handleSubmit = e => {
     e.preventDefault();
     addLyricsToSong({ 
       variables: {
-        content: lyrics,
+        content,
         songId
       },
-    })
-      .then(res => console.log('res', res));
-    setLyrics('');
+    });
+    setContent('');
   }
 
-  
   return (
       <div>
         <h3>Add Lyrics to the song!</h3>
@@ -28,8 +26,8 @@ const LyricCreate = (props) => {
             autoFocus 
             type="text" 
             placeholder='Add lyrics here!'
-            onChange={(e) => setLyrics(e.target.value)}
-            value={lyrics}
+            onChange={(e) => setContent(e.target.value)}
+            value={content}
           />
           <button>Add Lyrics!</button>
         </form>

@@ -70,3 +70,13 @@ input[type="text"] {
   font-size: 24px;
   font-weight: 500;
 }
+
+.lyric-list-container {
+  
+}
+
+.lyric-container {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}
