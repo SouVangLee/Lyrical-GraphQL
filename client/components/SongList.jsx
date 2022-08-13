@@ -22,7 +22,7 @@ const SongList = ( props ) => {
   const renderSongs = data.songs.map(({ id, title }) => {
     return (
       <div key={`${id}-${title}`} className="song">
-        {title}-----------------{id}
+        <Link to={`song/${id}`}>{ title }</Link>
         <button onClick={() => handleDeleteSong(id)}>delete</button>
       </div>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import FETCH_SONG from '../queries/fetchSong';
 
 const SongDetail = (props) => {
@@ -16,6 +16,7 @@ const SongDetail = (props) => {
 
   return (
     <div>
+      <Link to="/" className='back-to-song-list' dangerouslySetInnerHTML={{__html: `\u2190` }} />
       <h3>{title}</h3>
     </div>
   )
