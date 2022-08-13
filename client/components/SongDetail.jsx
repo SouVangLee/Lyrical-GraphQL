@@ -11,7 +11,7 @@ const SongDetail = (props) => {
   });
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>{`The song does not exist!`}</p>
+  if (error) return <p>{`The song does not exist!`}</p>;
 
   const { title } = data.song;
 
@@ -23,7 +23,7 @@ const SongDetail = (props) => {
         dangerouslySetInnerHTML={{__html: `\u2190` }} 
       />
       <h3 style={{ textAlign:"center" }}>{ title }</h3>
-      <LyricCreate />
+      <LyricCreate songId={ id } />
     </div>
   )
 };

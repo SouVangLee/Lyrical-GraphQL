@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client"
-const ADD_LYRICS_TO_SONG = gql`
-    mutation addLyricsToSong($content: String, $songId: ID!) {
-        addLyricsToSong(content: $content, songId: $songId) {
+const ADD_LYRIC_TO_SONG = gql`
+    mutation addLyricToSong($content: String, $songId: ID!) {
+        addLyricToSong(content: $content, songId: $songId) {
             id
             title
             lyrics {
@@ -13,4 +13,4 @@ const ADD_LYRICS_TO_SONG = gql`
     }
 `;
 
-export default ADD_LYRICS_TO_SONG;
+export default ADD_LYRIC_TO_SONG;
