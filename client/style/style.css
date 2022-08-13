@@ -10,7 +10,7 @@
 .song {
   display: flex;
   justify-content: space-between;
-  font-size: 24px;
+  font-size: 20px;
   padding: 16px;
   border: 2px solid grey;
 }
@@ -41,7 +41,7 @@
   right: 5%;
   text-align: center;
   color: white;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 700;
   border-radius: 50%;
 }
@@ -67,7 +67,7 @@
 }
 
 input[type="text"] {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
 }
 
@@ -79,4 +79,9 @@ input[type="text"] {
   border: 1px solid black;
   display: flex;
   justify-content: space-between;
+  padding: 10px;
+}
+
+.like-button:hover {
+  cursor: pointer;
 }
