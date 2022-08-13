@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { useParams, Link } from 'react-router-dom';
 import FETCH_SONG from '../queries/fetchSong';
+import LyricCreate from './LyricCreate';
 
 const SongDetail = (props) => {
   const { id } = useParams();
@@ -16,8 +17,13 @@ const SongDetail = (props) => {
 
   return (
     <div>
-      <Link to="/" className='back-to-song-list' dangerouslySetInnerHTML={{__html: `\u2190` }} />
-      <h3>{title}</h3>
+      <Link 
+        to="/" 
+        className='back-to-song-list' 
+        dangerouslySetInnerHTML={{__html: `\u2190` }} 
+      />
+      <h3 style={{ textAlign:"center" }}>{ title }</h3>
+      <LyricCreate />
     </div>
   )
 };

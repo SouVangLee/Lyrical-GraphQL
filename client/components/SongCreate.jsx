@@ -23,7 +23,11 @@ const SongCreate = (props) => {
 
   return (
     <div className="create-song-container">
-      <Link to="/" className='back-to-song-list' dangerouslySetInnerHTML={{__html: `\u2190` }} />
+      <Link 
+        to="/" 
+        className='back-to-song-list' 
+        dangerouslySetInnerHTML={{__html: `\u2190` }} 
+      />
       <h3>Create a New Song</h3>
       <form 
         onSubmit={handleSubmit} 
