@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 // defining a query
-const FETCH_SONGS = gql`
-  query {
+const FETCH_ALL_SONGS = gql`
+  query getAllSongs {
     songs {
       id
       title
@@ -10,4 +10,4 @@ const FETCH_SONGS = gql`
   }
 `;
 
-export default FETCH_SONGS;
+export default FETCH_ALL_SONGS;
