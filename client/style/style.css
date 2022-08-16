@@ -71,10 +71,6 @@ input[type="text"] {
   font-weight: 500;
 }
 
-.lyric-list-container {
-  
-}
-
 .lyric-container {
   border: 1px solid black;
   display: flex;
@@ -84,4 +80,10 @@ input[type="text"] {
 
 .like-button:hover {
   cursor: pointer;
+}
+
+.likes-container {
+  display: flex;
+  justify-content: space-between;
+  min-width: 3%;
 }
